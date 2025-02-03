@@ -7,6 +7,7 @@ import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/font_style.dart';
 import '../../../../core/utils/responsive.dart';
 import '../../../../core/widgets/main_button.dart';
+import '../../main_pages/bnv/bnv.dart';
 import '../forgot_password/forgot_pass.dart';
 import 'widgets/form.dart';
 
@@ -51,7 +52,9 @@ class LoginBody extends StatelessWidget {
                 const SizedBox(height: 80),
                 MainButton(
                   onTap: () {
-                    loginkey.currentState!.validate();
+                    if (loginkey.currentState!.validate()) {
+                      Navigator.of(context).pushNamed(BNV.routeName);
+                    }
                   },
                   name: 'Login'.tr(context),
                 ),
@@ -83,7 +86,7 @@ class LoginBody extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                 Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
@@ -91,7 +94,8 @@ class LoginBody extends StatelessWidget {
                       style: AppFonts.b16_700,
                     ),
                     InkWell(
-                      onTap: () => Navigator.of(context).pushNamed(Signup.routeName),
+                      onTap: () =>
+                          Navigator.of(context).pushNamed(Signup.routeName),
                       child: const Text(
                         "Sign Up",
                         style: AppFonts.b16_700,

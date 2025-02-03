@@ -2,6 +2,7 @@ import 'package:e_commerce_with_supabase/core/route/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'core/localization/aoo_localization.dart';
+import 'features/cubit/bnv/bnv_cubit.dart';
 import 'features/cubit/localization/localization_cubit.dart';
 import 'features/cubit/login/login_cubit.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
         BlocProvider<SignupCubit>(
           create: (context) => SignupCubit(),
         ),
+        BlocProvider<BnvCubit>(
+          create: (context) => BnvCubit(),
+        ),
         BlocProvider<LocalizationCubit>(
           create: (context) => LocalizationCubit()..getSavedLanguage(),
         ),
@@ -33,6 +37,7 @@ class MyApp extends StatelessWidget {
           builder: (context, state) {
         if (state is changeLanuageState) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             locale: state.locale,
             supportedLocales: const [Locale('ar'), Locale('en')],
