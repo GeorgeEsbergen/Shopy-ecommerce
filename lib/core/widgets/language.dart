@@ -17,9 +17,6 @@ class LanguageWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         const Icon(Icons.language),
-        const SizedBox(
-          width: 5,
-        ),
         Container(
           height: 40,
           color: Colors.grey.withOpacity(0.0),
@@ -37,9 +34,9 @@ class LanguageWidget extends StatelessWidget {
                     return DropdownMenuItem<String>(
                       value: item,
                       child: Text(
-                        item == 'ar' ? "عربي" : 'english',
+                        item == 'ar' ? "عربي" : 'English',
                         style:
-                            AppFonts.b16_700.copyWith(color: AppColors.black),
+                            AppFonts.b14_600.copyWith(color: AppColors.black),
                       ),
                     );
                   }).toList(),

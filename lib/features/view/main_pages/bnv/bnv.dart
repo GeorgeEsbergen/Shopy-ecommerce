@@ -3,13 +3,13 @@
 import 'package:e_commerce_with_supabase/core/utils/colors.dart';
 import 'package:e_commerce_with_supabase/features/view/main_pages/favourite/favourite.dart';
 import 'package:e_commerce_with_supabase/features/view/main_pages/home/home.dart';
-import 'package:e_commerce_with_supabase/features/view/main_pages/profile/profile.dart';
 import 'package:e_commerce_with_supabase/features/view/main_pages/store/store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import '../../../cubit/bnv/bnv_cubit.dart';
+import '../setings/settings.dart';
 
 class BNV extends StatelessWidget {
   BNV({super.key});
@@ -18,7 +18,8 @@ class BNV extends StatelessWidget {
     Home(),
     Store(),
     Favourite(),
-    Profile(),
+    // Profile(),
+    SettingsScreen()
   ];
   @override
   Widget build(BuildContext context) {
@@ -34,10 +35,8 @@ class BNV extends StatelessWidget {
             ),
           ),
           bottomNavigationBar: Container(
-            
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
             child: GNav(
-    
                 onTabChange: (value) {
                   cubit.changePage(value);
                 },
@@ -70,8 +69,8 @@ class BNV extends StatelessWidget {
                     text: 'Favorite',
                   ),
                   GButton(
-                    icon: Icons.person,
-                    text: 'Profile',
+                    icon: Icons.settings,
+                    text: 'Setting',
                   )
                 ]),
           ),
