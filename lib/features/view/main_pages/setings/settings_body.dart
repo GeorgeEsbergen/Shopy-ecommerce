@@ -1,7 +1,9 @@
+import 'package:e_commerce_with_supabase/features/view/entry_pages/orders/orders.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/font_style.dart';
 import '../../../../core/widgets/divider.dart';
 import '../../../../core/widgets/language.dart';
+import '../../entry_pages/profile/profile.dart';
 import 'widgets/logout_dialog.dart';
 import 'widgets/setting_item.dart';
 
@@ -52,9 +54,15 @@ class SettingsBody extends StatelessWidget {
               ),
               const SizedBox(height: 30),
               SettingsItems(
-                onTap: () {},
+                onTap: () => Navigator.of(context).pushNamed(Profile.routeName),
                 name: 'Profile',
                 icon: Icons.person_2_outlined,
+              ),
+              const mainDivider(),
+              SettingsItems(
+                onTap: () => Navigator.of(context).pushNamed(Orders.routeName),
+                name: 'My Orders',
+                icon: Icons.shopping_bag_outlined,
               ),
               const mainDivider(),
               SettingsItems(
