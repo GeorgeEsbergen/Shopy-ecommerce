@@ -9,6 +9,10 @@ final class SignupSuccess extends SignupState {}
 
 final class SignupLoading extends SignupState {}
 
-final class SignupFailure extends SignupState {}
+final class SignupFailure extends SignupState {
+  final String message;
+
+  SignupFailure({required this.message});
+}
 
 final class ShowPassword extends SignupState {}

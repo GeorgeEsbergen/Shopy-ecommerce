@@ -13,7 +13,7 @@ class mainDivider extends StatelessWidget {
         bottom: 15,
       ),
       height: 1,
-      width: double.infinity,
+      width: 50,
       decoration: const BoxDecoration(color: Colors.grey),
     );
   }

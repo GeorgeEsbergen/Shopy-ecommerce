@@ -13,12 +13,12 @@ import '../../../../view_model/auth/login/validator.dart';
 class LoginForm extends StatelessWidget {
   LoginForm({
     super.key,
-    required this.loginKey,
+    required this.loginKey, required this.email, required this.password,
   });
   final GlobalKey loginKey;
 
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
+ final  TextEditingController email;
+  final TextEditingController password;
 
   @override
   Widget build(BuildContext context) {

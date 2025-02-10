@@ -10,7 +10,7 @@ import '../../features/view/main_pages/bnv/bnv.dart';
 
 class Routes {
   static Map<String, Widget Function(BuildContext)> routes = {
-    '/': (context) => BNV(), //Login(),
+    '/': (context) => Login(),
     Login.routeName: (context) => const Login(),
     Signup.routeName: (context) => const Signup(),
     ForgotPass.routeName: (context) => ForgotPass(),

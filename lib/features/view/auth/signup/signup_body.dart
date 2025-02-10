@@ -40,7 +40,6 @@ class SignupBody extends StatelessWidget {
                   name: 'Signup'.tr(context),
                 ),
                 const SizedBox(height: 20),
-                const ORContinueRow(),
                 SizedBox(
                   width: AppResp(context).size.width / 2.5,
                   child: ElevatedButton(
