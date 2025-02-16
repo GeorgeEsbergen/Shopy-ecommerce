@@ -2,11 +2,13 @@
 import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
 import 'package:e_commerce_with_supabase/core/widgets/divider.dart';
 import 'package:e_commerce_with_supabase/features/view/auth/signup/signup.dart';
+import 'package:e_commerce_with_supabase/features/view/main_pages/bnv/bnv.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/font_style.dart';
 import '../../../../core/utils/responsive.dart';
+import '../../../../core/widgets/custom_indicator.dart';
 import '../../../../core/widgets/main_button.dart';
 import '../../../../core/widgets/main_snackbar.dart';
 import '../../../cubit/login/login_cubit.dart';
@@ -35,7 +37,7 @@ class _LoginBodyState extends State<LoginBody> {
               BlocConsumer<LoginCubit, LoginState>(builder: (context, state) {
         LoginCubit cubit = context.read<LoginCubit>();
 
-        return Container(
+        return state is LoginLoading?const CustomCircleIndicator():  Container(
           width: AppResp(context).size.width,
           margin: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -125,6 +127,9 @@ class _LoginBodyState extends State<LoginBody> {
           ),
         );
       }, listener: (context, state) {
+        if (state is LoginSuccess) {
+            Navigator.of(context).pushReplacementNamed(BNV.routeName);
+          }
         if (state is LoginFailure) {
           mainSnackBar(context, state.message);
         }

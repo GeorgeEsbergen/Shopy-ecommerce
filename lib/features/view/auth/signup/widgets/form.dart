@@ -13,14 +13,14 @@ import '../../../../view_model/auth/login/validator.dart';
 class SignupForm extends StatelessWidget {
   SignupForm({
     super.key,
-    required this.signupKey,
+    required this.signupKey, required this.email, required this.password, required this.name, required this.phone,
   });
   final GlobalKey signupKey;
 
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
-  TextEditingController address =TextEditingController();
-  TextEditingController phone =TextEditingController();
+  final TextEditingController email;
+  final TextEditingController password;
+  final TextEditingController name;
+  final TextEditingController phone;
 
   @override
   Widget build(BuildContext context) {
@@ -47,19 +47,19 @@ class SignupForm extends StatelessWidget {
               validator: (value) => signUpValidator.validateEmail(value!),
             ),
             const SizedBox(height: 25),
-             const Text(
-              "Address",
+            const Text(
+              "Name",
               style: AppFonts.b16_700,
             ),
             const SizedBox(height: 12),
             MainTextField(
-              controller: address,
-              icon: Icons.location_on_outlined,
+              controller: name,
+              icon: Icons.person,
               keyboardType: TextInputType.streetAddress,
-              validator: (value) => signUpValidator.validateAddress(value!),
+              validator: (value) => signUpValidator.validateName(value!),
             ),
             const SizedBox(height: 25),
-             const Text(
+            const Text(
               "Phone",
               style: AppFonts.b16_700,
             ),

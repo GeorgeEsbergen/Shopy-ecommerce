@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // ignore: non_constant_identifier_names
-Future<dynamic> LogoutDialog(BuildContext context) {
+Future<dynamic> LogoutDialog(BuildContext context ,{VoidCallback? logOut}) {
     return showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -19,10 +19,7 @@ Future<dynamic> LogoutDialog(BuildContext context) {
                 ),
               ),
               TextButton(
-                onPressed: () {
-                  // Add your confirmation logic here
-                  Navigator.of(context).pop(); // Close dialog
-                },
+                onPressed: logOut,
                 child: const Text(
                   'Log out',
                   style: TextStyle(color: Colors.red),

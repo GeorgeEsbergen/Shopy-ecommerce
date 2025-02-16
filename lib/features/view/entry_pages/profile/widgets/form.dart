@@ -52,7 +52,7 @@ class SignupForm extends StatelessWidget {
               controller: address,
               icon: Icons.location_on_outlined,
               keyboardType: TextInputType.streetAddress,
-              validator: (value) => signUpValidator.validateAddress(value!),
+              validator: (value) => signUpValidator.validateName(value!),
             ),
             const SizedBox(height: 25),
             const Text(

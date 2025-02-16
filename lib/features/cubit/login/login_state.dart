@@ -16,3 +16,23 @@ final class LoginFailure extends LoginState {
 }
 
 final class ShowPassword extends LoginState {}
+
+
+
+final class LogOutSuccess extends LoginState {}
+
+final class LogOutLoading extends LoginState {}
+
+final class LogOutFailure extends LoginState {
+  final String message;
+
+  LogOutFailure({required this.message});
+}
+
+
+final class resetPasswordSuccess extends LoginState {}
+
+final class resetPasswordLoading extends LoginState {}
+
+final class resetPasswordFailure extends LoginState {
+}

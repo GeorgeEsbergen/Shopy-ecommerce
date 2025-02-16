@@ -1,6 +1,10 @@
+import 'package:e_commerce_with_supabase/features/cubit/login/login_cubit.dart';
+import 'package:e_commerce_with_supabase/features/view/auth/login/login.dart';
 import 'package:e_commerce_with_supabase/features/view/entry_pages/orders/orders.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/font_style.dart';
+import '../../../../core/widgets/custom_indicator.dart';
 import '../../../../core/widgets/divider.dart';
 import '../../../../core/widgets/language.dart';
 import '../../entry_pages/profile/profile.dart';
@@ -73,14 +77,24 @@ class SettingsBody extends StatelessWidget {
               const mainDivider(),
               const LanguageWidget(),
               const mainDivider(),
-              SettingsItems(
-                onTap: () {
-                  LogoutDialog(context);
-                },
-                name: 'Log out',
-                icon: Icons.logout_sharp,
-                color: Colors.red,
-              ),
+              BlocConsumer<LoginCubit, LoginState>(builder: (context, state) {
+                return state is LogOutLoading
+                    ? const CustomCircleIndicator()
+                    : SettingsItems(
+                        onTap: () {
+                          LogoutDialog(context, logOut: () async {
+                            await context.read<LoginCubit>().logout();
+                          });
+                        },
+                        name: 'Log out',
+                        icon: Icons.logout_sharp,
+                        color: Colors.red,
+                      );
+              }, listener: (context, state) {
+                if (state is LogOutSuccess) {
+                  Navigator.of(context).pushReplacementNamed(Login.routeName);
+                }
+              })
             ],
           ),
         ),

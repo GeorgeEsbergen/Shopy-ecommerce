@@ -35,13 +35,9 @@ class signUpValidator {
     return null;
   }
 
-  static String? validateAddress(String value) {
+  static String? validateName(String value) {
     if (value.isEmpty) {
-      return 'Address cannot be empty';
-    }
-    final RegExp emailRegExp = RegExp(r'^[^@]+@[^@]+\.[^@]+');
-    if (!emailRegExp.hasMatch(value)) {
-      return 'Invalid address format';
+      return 'Name cannot be empty';
     }
     return null;
   }
