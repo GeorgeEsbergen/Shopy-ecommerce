@@ -23,13 +23,15 @@ class ListOfItems extends StatelessWidget {
           // TODO: implement listener
         },
         builder: (context, state) {
-           List<ProductModel> products = context.read<HomeCubit>().products;
+          List<ProductModel> products = context.read<HomeCubit>().products;
           return state is HomeDataLoading
               ? const CustomCircleIndicator()
               : ListView.builder(
                   shrinkWrap: shrinkWrap ?? true,
                   physics: physics ?? const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) => const ItemCard(),
+                  itemBuilder: (context, index) => ItemCard(
+                    productModel: products[index],
+                  ),
                   itemCount: products.length,
                 );
         },

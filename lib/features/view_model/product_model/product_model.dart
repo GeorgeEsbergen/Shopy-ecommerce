@@ -10,6 +10,7 @@ class ProductModel {
   String? sale;
   String? description;
   String? category;
+  String? image_url;
   List<Favourite>? favourites;
   List<Purchase>? purchase;
 
@@ -24,6 +25,7 @@ class ProductModel {
     this.category,
     this.favourites,
     this.purchase,
+    this.image_url,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
@@ -33,6 +35,7 @@ class ProductModel {
             : DateTime.parse(json['created_at'] as String),
         name: json['name'] as String?,
         price: json['price'] as String?,
+        image_url: json['image_url'] as String?,
         oldPrice: json['old_price'] as String?,
         sale: json['sale'] as String?,
         description: json['description'] as String?,
@@ -54,6 +57,7 @@ class ProductModel {
         'sale': sale,
         'description': description,
         'category': category,
+        'image_url': image_url,
         'favourites': favourites?.map((e) => e.toJson()).toList(),
         'purchase': purchase?.map((e) => e.toJson()).toList(),
       };
