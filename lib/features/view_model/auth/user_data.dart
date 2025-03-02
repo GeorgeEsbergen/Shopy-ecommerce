@@ -4,5 +4,9 @@ class GetUserDataModel {
   final String phone;
   final String id;
 
-  GetUserDataModel( {required this.id,required this.name, required this.email, required this.phone});
+  GetUserDataModel(
+      {required this.id,
+      required this.name,
+      required this.email,
+      required this.phone});
 }

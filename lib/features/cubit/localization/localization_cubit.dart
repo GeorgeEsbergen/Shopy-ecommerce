@@ -1,4 +1,3 @@
-
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
@@ -15,12 +14,8 @@ class LocalizationCubit extends Cubit<LocalizationState> {
     emit(changeLanuageState(locale: Locale(getLanguageCode)));
   }
 
-Future<void> changeLanguage(String languageCode) async {
-    
-        await LanguageGetHelper().cacheLanguageCode(languageCode);
+  Future<void> changeLanguage(String languageCode) async {
+    await LanguageGetHelper().cacheLanguageCode(languageCode);
     emit(changeLanuageState(locale: Locale(languageCode)));
   }
-
-
-
 }

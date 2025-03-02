@@ -4,4 +4,5 @@ part of 'bnv_cubit.dart';
 sealed class BnvState {}
 
 final class BnvInitial extends BnvState {}
+
 final class ChangeIndexPage extends BnvState {}

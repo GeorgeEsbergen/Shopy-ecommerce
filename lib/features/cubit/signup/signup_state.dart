@@ -18,7 +18,7 @@ final class SignupFailure extends SignupState {
 final class AddUserDataSuccess extends SignupState {}
 
 final class AddUserDataLoading extends SignupState {}
-final class AddUserDataFailure extends SignupState {}
 
+final class AddUserDataFailure extends SignupState {}
 
 final class ShowPassword extends SignupState {}

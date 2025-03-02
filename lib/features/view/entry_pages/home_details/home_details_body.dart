@@ -60,7 +60,6 @@ class HomeDetailsBody extends StatelessWidget {
                       "FASDL FDA ADSFLASK F AFSLK ASFLKF LASFKLFKSA  FDA ADSFLASK F AFSLK ASFLKF LASFKLFKSA FDA ADSFLASK F AFSLK ASFLKF LASFKLFKSA ",
                   title: 'Description',
                 ),
-                
               ],
             ),
           )

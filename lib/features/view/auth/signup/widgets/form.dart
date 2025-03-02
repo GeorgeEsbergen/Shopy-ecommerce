@@ -13,7 +13,11 @@ import '../../../../view_model/auth/login/validator.dart';
 class SignupForm extends StatelessWidget {
   SignupForm({
     super.key,
-    required this.signupKey, required this.email, required this.password, required this.name, required this.phone,
+    required this.signupKey,
+    required this.email,
+    required this.password,
+    required this.name,
+    required this.phone,
   });
   final GlobalKey signupKey;
 

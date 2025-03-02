@@ -46,11 +46,11 @@ class SettingsBody extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          getdata!.name?? "Known Name",
-                          style: AppFonts.b14_600, 
+                          getdata!.name ?? "Known Name",
+                          style: AppFonts.b14_600,
                         ),
                         Text(
-                          getdata.email?? "Known email",
+                          getdata.email ?? "Known email",
                           style: AppFonts.b14_600,
                         ),
                       ],

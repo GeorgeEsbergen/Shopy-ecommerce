@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'profile_body.dart';
@@ -9,6 +8,6 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  ProfileBody();
+    return ProfileBody();
   }
 }

@@ -1,9 +1,6 @@
-
 import 'package:flutter/material.dart';
 
 import 'signup_body.dart';
-
-
 
 class Signup extends StatelessWidget {
   static String routeName = "signup";
@@ -11,6 +8,6 @@ class Signup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SignupBody();
+    return SignupBody();
   }
 }

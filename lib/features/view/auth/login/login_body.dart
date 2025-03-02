@@ -37,99 +37,103 @@ class _LoginBodyState extends State<LoginBody> {
               BlocConsumer<LoginCubit, LoginState>(builder: (context, state) {
         LoginCubit cubit = context.read<LoginCubit>();
 
-        return state is LoginLoading?const CustomCircleIndicator():  Container(
-          width: AppResp(context).size.width,
-          margin: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Ava Samouel",
-                style: AppFonts.b22_600,
-              ),
-              const SizedBox(height: 70),
-              LoginForm(
-                loginKey: loginkey,
-                email: email,
-                password: password,
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).pushNamed(ForgotPass.routeName);
-                    },
-                    child: Text(
-                      "Forgot Password !".tr(context),
-                      style: AppFonts.b16_700,
+        return state is LoginLoading
+            ? const CustomCircleIndicator()
+            : Container(
+                width: AppResp(context).size.width,
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Ava Samouel",
+                      style: AppFonts.b22_600,
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 80),
-              MainButton(
-                onTap: () {
-                  if (loginkey.currentState!.validate()) {
-                    // Navigator.of(context).pushNamed(BNV.routeName);
-                    cubit.login(email: email.text, password: password.text);
-                  }
-                },
-                name: 'Login'.tr(context),
-              ),
-              const SizedBox(height: 20),
-              const ORContinueRow(),
-              SizedBox(
-                width: AppResp(context).size.width / 2.5,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      side: const BorderSide(color: AppColors.black),
-                      shadowColor: AppColors.black,
-                      foregroundColor: AppColors.black,
-                      backgroundColor: AppColors.white),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text('Google'),
-                      const SizedBox(width: 10),
-                      Image.asset(
-                        'assets/images/icons/google.png',
-                        width: 22,
-                        height: 22,
-                      )
-                    ],
-                  ),
+                    const SizedBox(height: 70),
+                    LoginForm(
+                      loginKey: loginkey,
+                      email: email,
+                      password: password,
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context)
+                                .pushNamed(ForgotPass.routeName);
+                          },
+                          child: Text(
+                            "Forgot Password !".tr(context),
+                            style: AppFonts.b16_700,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 80),
+                    MainButton(
+                      onTap: () {
+                        if (loginkey.currentState!.validate()) {
+                          // Navigator.of(context).pushNamed(BNV.routeName);
+                          cubit.login(
+                              email: email.text, password: password.text);
+                        }
+                      },
+                      name: 'Login'.tr(context),
+                    ),
+                    const SizedBox(height: 20),
+                    const ORContinueRow(),
+                    SizedBox(
+                      width: AppResp(context).size.width / 2.5,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            side: const BorderSide(color: AppColors.black),
+                            shadowColor: AppColors.black,
+                            foregroundColor: AppColors.black,
+                            backgroundColor: AppColors.white),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text('Google'),
+                            const SizedBox(width: 10),
+                            Image.asset(
+                              'assets/images/icons/google.png',
+                              width: 22,
+                              height: 22,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Don't have account ? ",
+                          style: AppFonts.b16_700,
+                        ),
+                        InkWell(
+                          onTap: () =>
+                              Navigator.of(context).pushNamed(Signup.routeName),
+                          child: const Text(
+                            "Sign Up",
+                            style: AppFonts.b16_700,
+                          ),
+                        )
+                      ],
+                    )
+                  ],
                 ),
-              ),
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Don't have account ? ",
-                    style: AppFonts.b16_700,
-                  ),
-                  InkWell(
-                    onTap: () =>
-                        Navigator.of(context).pushNamed(Signup.routeName),
-                    child: const Text(
-                      "Sign Up",
-                      style: AppFonts.b16_700,
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
-        );
+              );
       }, listener: (context, state) {
         if (state is LoginSuccess) {
-            Navigator.of(context).pushReplacementNamed(BNV.routeName);
-          }
+          Navigator.of(context).pushReplacementNamed(BNV.routeName);
+        }
         if (state is LoginFailure) {
           mainSnackBar(context, state.message);
         }
@@ -144,8 +148,6 @@ class _LoginBodyState extends State<LoginBody> {
     super.dispose();
   }
 }
-
-
 
 class ORContinueRow extends StatelessWidget {
   const ORContinueRow({

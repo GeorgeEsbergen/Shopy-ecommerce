@@ -7,6 +7,6 @@ class Store extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  StoreBody();
+    return StoreBody();
   }
 }

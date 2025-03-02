@@ -19,4 +19,3 @@ class DeescriptionRow extends StatelessWidget {
     );
   }
 }
-

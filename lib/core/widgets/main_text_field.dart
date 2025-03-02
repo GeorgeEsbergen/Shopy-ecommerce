@@ -9,7 +9,8 @@ class MainTextField extends StatelessWidget {
     required this.icon,
     this.keyboardType,
     this.validator,
-    this.readOnly, this.onTapField,
+    this.readOnly,
+    this.onTapField,
   });
   final TextEditingController controller;
   final IconData icon;

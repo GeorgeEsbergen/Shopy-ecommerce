@@ -13,4 +13,3 @@ class HomeDetails extends StatelessWidget {
     );
   }
 }
-

@@ -9,5 +9,5 @@ final class LocalizationInitial extends LocalizationState {}
 final class changeLanuageState extends LocalizationState {
   final Locale locale;
 
-  changeLanuageState( {required  this.locale} );
+  changeLanuageState({required this.locale});
 }
