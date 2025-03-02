@@ -5,6 +5,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:meta/meta.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../view_model/auth/user_data.dart';
+
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
@@ -22,6 +24,7 @@ class LoginCubit extends Cubit<LoginState> {
     emit(LoginLoading());
     try {
       await client.auth.signInWithPassword(password: password, email: email);
+      await getUserData();
       emit(LoginSuccess());
     } on AuthApiException catch (e) {
       log(e.toString());
@@ -88,6 +91,28 @@ class LoginCubit extends Cubit<LoginState> {
     } catch (e) {
       log(e.toString());
       emit(resetPasswordFailure());
+    }
+  }
+
+  GetUserDataModel? getUserDataModel;
+  Future<void> getUserData() async {
+    emit(getUserDataLoading());
+    try {
+      final data = await client
+          .from('users')
+          .select()
+          .eq('user_id', client.auth.currentUser!.id);
+
+      getUserDataModel = GetUserDataModel(
+        id: data[0]['user_id'],
+        email: data[0]['email'],
+        name: data[0]['name'],
+        phone: data[0]['phone'],
+      );
+      log(data.toString());
+    } catch (e) {
+      log(e.toString());
+      emit(getUserDataFailure());
     }
   }
 }
