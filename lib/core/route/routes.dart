@@ -12,13 +12,13 @@ import '../../features/view/main_pages/bnv/bnv.dart';
 class Routes {
   static Map<String, Widget Function(BuildContext)> routes = {
     '/': (context) =>
-        Supabase.instance.client.auth.currentUser != null ? BNV() : Login(),
+        Supabase.instance.client.auth.currentUser != null ? BNV() : const Login(),
     Login.routeName: (context) => const Login(),
     Signup.routeName: (context) => const Signup(),
-    ForgotPass.routeName: (context) => ForgotPass(),
+    ForgotPass.routeName: (context) => const ForgotPass(),
     BNV.routeName: (context) => BNV(),
     Profile.routeName: (context) => const Profile(),
     Orders.routeName: (context) => const Orders(),
-    HomeDetails.routeName: (context) => const HomeDetails(),
+    HomeDetails.routeName: (context) =>  const HomeDetails(),
   };
 }

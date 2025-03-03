@@ -12,7 +12,7 @@ import '../../../view_model/auth/login/validator.dart';
 // ignore: must_be_immutable
 class ForgotPass extends StatefulWidget {
   static String routeName = "Forgot Password";
-  ForgotPass({super.key});
+  const ForgotPass({super.key});
 
   @override
   State<ForgotPass> createState() => _ForgotPassState();

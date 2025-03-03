@@ -11,7 +11,7 @@ import '../../../../cubit/login/login_cubit.dart';
 import '../../../../view_model/auth/login/validator.dart';
 
 class LoginForm extends StatelessWidget {
-  LoginForm({
+  const LoginForm({
     super.key,
     required this.loginKey,
     required this.email,

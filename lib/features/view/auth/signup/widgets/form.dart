@@ -11,7 +11,7 @@ import '../../../../cubit/signup/signup_cubit.dart';
 import '../../../../view_model/auth/login/validator.dart';
 
 class SignupForm extends StatelessWidget {
-  SignupForm({
+  const SignupForm({
     super.key,
     required this.signupKey,
     required this.email,

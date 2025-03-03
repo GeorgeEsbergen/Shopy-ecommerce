@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,12 +38,10 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   Future<AuthResponse> _googleSignIn() async {
-    /// TODO: update the Web client ID with your own.
     ///
     /// Web Client ID that you registered with Google Cloud.
     const webClientId = 'my-web.apps.googleusercontent.com';
 
-    /// TODO: update the iOS client ID with your own.
     ///
     /// iOS Client ID that you registered with Google Cloud.
     const iosClientId = 'my-ios.apps.googleusercontent.com';

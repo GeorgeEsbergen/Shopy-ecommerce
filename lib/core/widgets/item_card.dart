@@ -16,7 +16,7 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context).pushNamed(HomeDetails.routeName),
+      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomeDetails(productModel:productModel ))),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Column(
@@ -43,7 +43,7 @@ class ItemCard extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -51,7 +51,7 @@ class ItemCard extends StatelessWidget {
                     "${productModel.name}",
                     style: AppFonts.b14_600,
                   ),
-                  Icon(
+                  const Icon(
                     Icons.favorite,
                     color: AppColors.gray,
                   )
@@ -68,11 +68,11 @@ class ItemCard extends StatelessWidget {
                     children: [
                       Text(
                         '${productModel.price} LE',
-                        style: TextStyle(fontSize: 15),
+                        style: const TextStyle(fontSize: 15),
                       ),
                       Text(
                         '${productModel.oldPrice} LE',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.grey,
                             fontSize: 13,
                             decoration: TextDecoration.lineThrough),

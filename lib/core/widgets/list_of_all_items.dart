@@ -20,7 +20,6 @@ class ListOfItems extends StatelessWidget {
       create: (context) => HomeCubit()..getProducts(),
       child: BlocConsumer<HomeCubit, HomeState>(
         listener: (context, state) {
-          // TODO: implement listener
         },
         builder: (context, state) {
           List<ProductModel> products = context.read<HomeCubit>().products;

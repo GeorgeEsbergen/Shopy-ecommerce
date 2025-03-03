@@ -16,7 +16,7 @@ import '../forgot_password/forgot_pass.dart';
 import 'widgets/form.dart';
 
 class LoginBody extends StatefulWidget {
-  LoginBody({super.key});
+  const LoginBody({super.key});
 
   @override
   State<LoginBody> createState() => _LoginBodyState();
