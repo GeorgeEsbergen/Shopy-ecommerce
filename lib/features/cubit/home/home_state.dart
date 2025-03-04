@@ -10,3 +10,15 @@ final class HomeDataLoading extends HomeState {}
 final class HomeDataSuccess extends HomeState {}
 
 final class HomeDataFailure extends HomeState {}
+
+final class addToFavLoading extends HomeState {}
+
+final class addToFavSuccess extends HomeState {}
+
+final class addToFavFailure extends HomeState {}
+
+final class deleteFromFavLoading extends HomeState {}
+
+final class deleteFromFavSuccess extends HomeState {}
+
+final class deleteFromFavFailure extends HomeState {}

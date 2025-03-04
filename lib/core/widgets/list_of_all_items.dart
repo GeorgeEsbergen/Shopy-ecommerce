@@ -11,28 +11,52 @@ class ListOfItems extends StatelessWidget {
     super.key,
     this.shrinkWrap,
     this.physics,
+    this.query,
+    this.category, this.isFavScreen=false,
   });
   final bool? shrinkWrap;
   final ScrollPhysics? physics;
+  final String? query;
+  final String? category;
+  final bool isFavScreen ;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit()..getProducts(),
+      create: (context) =>
+          HomeCubit()..getProducts(query: query, category: category),
       child: BlocConsumer<HomeCubit, HomeState>(
-        listener: (context, state) {
-        },
+        listener: (context, state) {},
         builder: (context, state) {
-          List<ProductModel> products = context.read<HomeCubit>().products;
+          HomeCubit homeCubit = context.read<HomeCubit>();
+          List<ProductModel> products = query != null
+              ? context.read<HomeCubit>().filterdProducts
+              : category != null
+                  ? context.read<HomeCubit>().categoryProducts:
+                  isFavScreen? homeCubit.favouriteProducts
+                  : context.read<HomeCubit>().products;
           return state is HomeDataLoading
               ? const CustomCircleIndicator()
-              : ListView.builder(
-                  shrinkWrap: shrinkWrap ?? true,
-                  physics: physics ?? const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) => ItemCard(
-                    productModel: products[index],
-                  ),
-                  itemCount: products.length,
-                );
+              : products.isEmpty
+                  ? Center(
+                      child: Text('No Results To show'),
+                    )
+                  : ListView.builder(
+                      shrinkWrap: shrinkWrap ?? true,
+                      physics: physics ?? const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) => ItemCard(
+                        productModel: products[index],
+                        favBTN: () {
+                          bool isFavourite =
+                              homeCubit.checkIfFav(products[index].id!);
+                          isFavourite
+                              ? homeCubit
+                                  .deleteFromFavourite(products[index].id!)
+                              : homeCubit.addToFavourite(products[index].id!);
+                        },
+                        isFav: homeCubit.checkIfFav(products[index].id!),
+                      ),
+                      itemCount: products.length,
+                    );
         },
       ),
     );

@@ -9,6 +9,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../../../../core/widgets/cache_image.dart';
 import '../../../../core/widgets/search_text_field.dart';
 import '../../../cubit/productt_details/product_details_cubit.dart';
+import 'widgets/comments.dart';
 import 'widgets/description.dart';
 
 class HomeDetailsBody extends StatefulWidget {
@@ -114,11 +115,15 @@ class _HomeDetailsBodyState extends State<HomeDetailsBody> {
                               controller: comment,
                               icon: IconButton(
                                   onPressed: () async {
-                                    cubit.addComment(data: {
+                                    await context
+                                        .read<LoginCubit>()
+                                        .getUserData();
+
+                                    await cubit.addComment(data: {
                                       "user_id": cubit.userID,
                                       "product_id": widget.productModel.id,
                                       "comment": comment.text,
-                                      "user-name": context
+                                      "user_name": context
                                               .read<LoginCubit>()
                                               .getUserDataModel
                                               ?.name ??
@@ -128,6 +133,9 @@ class _HomeDetailsBodyState extends State<HomeDetailsBody> {
                                     comment.clear();
                                   },
                                   icon: const Icon(Icons.send)),
+                            ),
+                            CommentsListView(
+                              productModel: widget.productModel,
                             )
                           ],
                         ),

@@ -1,6 +1,8 @@
 import 'package:e_commerce_with_supabase/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
+import '../categories.dart';
+
 class CategoriesList extends StatelessWidget {
   const CategoriesList({
     super.key,
@@ -13,19 +15,25 @@ class CategoriesList extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: allCategories.length,
-        itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              CircleAvatar(
-                radius: 30,
-                backgroundColor: AppColors.black,
-                foregroundColor: AppColors.white,
-                child: Icon(allCategories[index].icon),
-              ),
-              const SizedBox(height: 5),
-              Text(allCategories[index].name)
-            ],
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => CategoriesScreen(category: allCategories[index].name,)));
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                CircleAvatar(
+                  radius: 30,
+                  backgroundColor: AppColors.black,
+                  foregroundColor: AppColors.white,
+                  child: Icon(allCategories[index].icon),
+                ),
+                const SizedBox(height: 5),
+                Text(allCategories[index].name)
+              ],
+            ),
           ),
         ),
       ),

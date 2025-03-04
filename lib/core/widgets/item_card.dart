@@ -11,12 +11,16 @@ class ItemCard extends StatelessWidget {
   const ItemCard({
     super.key,
     required this.productModel,
+    this.favBTN, required this.isFav,
   });
   final ProductModel productModel;
+  final VoidCallback? favBTN;
+  final bool isFav;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomeDetails(productModel:productModel ))),
+      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => HomeDetails(productModel: productModel))),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Column(
@@ -51,9 +55,12 @@ class ItemCard extends StatelessWidget {
                     "${productModel.name}",
                     style: AppFonts.b14_600,
                   ),
-                  const Icon(
-                    Icons.favorite,
-                    color: AppColors.gray,
+                  GestureDetector(
+                    onTap: favBTN,
+                    child:  Icon(
+                      Icons.favorite,
+                      color: isFav? Colors.red: AppColors.gray,
+                    ),
                   )
                 ],
               ),

@@ -16,7 +16,7 @@ class FavouriteBody extends StatelessWidget {
           ),
         ),
         SizedBox(height: 20),
-        ListOfItems(),
+        ListOfItems(isFavScreen: true,),
       ],
     );
   }

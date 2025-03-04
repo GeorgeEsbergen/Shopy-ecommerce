@@ -3,11 +3,19 @@ import 'package:e_commerce_with_supabase/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/widgets/list_of_all_items.dart';
 import '../../../../core/widgets/search_text_field.dart';
+import 'search.dart';
 import 'widgets/categoris_list.dart';
 
-class HomeBody extends StatelessWidget {
+class HomeBody extends StatefulWidget {
   HomeBody({super.key});
+
+  @override
+  State<HomeBody> createState() => _HomeBodyState();
+}
+
+class _HomeBodyState extends State<HomeBody> {
   TextEditingController search = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -15,7 +23,13 @@ class HomeBody extends StatelessWidget {
         SearchTextField(
           controller: search,
           icon: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => SearchScreen(
+                        query: search.text,
+                      )));
+              search.clear();
+            },
             style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.black,
                 foregroundColor: Colors.white,
@@ -38,5 +52,11 @@ class HomeBody extends StatelessWidget {
         const ListOfItems(),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    search.dispose();
+    super.dispose();
   }
 }
