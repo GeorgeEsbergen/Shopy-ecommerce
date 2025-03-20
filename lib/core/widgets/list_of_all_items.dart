@@ -1,4 +1,5 @@
 import 'package:e_commerce_with_supabase/core/widgets/custom_indicator.dart';
+import 'package:e_commerce_with_supabase/core/widgets/main_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,15 +13,19 @@ class ListOfItems extends StatelessWidget {
     this.shrinkWrap,
     this.physics,
     this.query,
-    this.category, this.isFavScreen=false,
+    this.category,
+    this.isFavScreen = false,  this.isMyOrders= false,
   });
   final bool? shrinkWrap;
   final ScrollPhysics? physics;
   final String? query;
   final String? category;
-  final bool isFavScreen ;
+  final bool isFavScreen;
+  final bool? isMyOrders;
+  
   @override
   Widget build(BuildContext context) {
+    
     return BlocProvider(
       create: (context) =>
           HomeCubit()..getProducts(query: query, category: category),
@@ -31,9 +36,10 @@ class ListOfItems extends StatelessWidget {
           List<ProductModel> products = query != null
               ? context.read<HomeCubit>().filterdProducts
               : category != null
-                  ? context.read<HomeCubit>().categoryProducts:
-                  isFavScreen? homeCubit.favouriteProducts
-                  : context.read<HomeCubit>().products;
+                  ? context.read<HomeCubit>().categoryProducts
+                  : isFavScreen
+                      ? homeCubit.favouriteProducts :isMyOrders!? homeCubit.userOrders
+                      : context.read<HomeCubit>().products;
           return state is HomeDataLoading
               ? const CustomCircleIndicator()
               : products.isEmpty
@@ -44,6 +50,11 @@ class ListOfItems extends StatelessWidget {
                       shrinkWrap: shrinkWrap ?? true,
                       physics: physics ?? const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) => ItemCard(
+                        onPaymentSuccess: () async {
+                          await homeCubit.buyProduct(
+                              productId: products[index].id!);
+                          mainSnackBar(context, "Product added to Orders");
+                        },
                         productModel: products[index],
                         favBTN: () {
                           bool isFavourite =

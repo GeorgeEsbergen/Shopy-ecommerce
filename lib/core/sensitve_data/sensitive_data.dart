@@ -1,2 +1,10 @@
 const String anonKey =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6aGZsaHFkc2hyaWJ3bGFpZWhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkwODY1MDgsImV4cCI6MjA1NDY2MjUwOH0.qcYFkVRpi6rrBWnUTu1Ug2BxhEKN0BIEBZT372Xp36g';
+
+const String paymobApiKey =
+    "ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmpiR0Z6Y3lJNklrMWxjbU5vWVc1MElpd2ljSEp2Wm1sc1pWOXdheUk2TVRBek1qZzVNQ3dpYm1GdFpTSTZJbWx1YVhScFlXd2lmUS4tREYzYkYzQWJkc0FCVEhEMFptdUpGWG8zaTQ3anRvekZ0QXRYMDc1XzlrYVhWUVlzRUNhVC1xOEZ5VmlTMkZneUhzRENieWdVa21kQkxYMXB5UzQ2QQ==";
+
+const String iframeId = "909531";
+
+const String integrationCardId = "5025244";
+const String integrationMobileWalletId = "5025299";

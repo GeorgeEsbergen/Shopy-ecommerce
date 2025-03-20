@@ -8,6 +8,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../view_model/product_model/favourite.dart';
 import '../../view_model/product_model/product_model.dart';
+import '../../view_model/product_model/purchase.dart';
 
 part 'home_state.dart';
 
@@ -22,9 +23,10 @@ class HomeCubit extends Cubit<HomeState> {
   List<ProductModel> favouriteProducts = [];
   Future<void> getProducts({String? query, String? category}) async {
     products = [];
-     filterdProducts = [];
+    filterdProducts = [];
     categoryProducts = [];
     favouriteProducts = [];
+    userOrders = [];
     emit(HomeDataLoading());
     try {
       Response response = await _apiServices
@@ -32,10 +34,11 @@ class HomeCubit extends Cubit<HomeState> {
       for (var product in response.data) {
         products.add(ProductModel.fromJson(product));
       }
-      
+
       fitlterdProducts(query);
       fitlterdProductsByCategory(category);
       favouriteProduct();
+      getUserOrdersProducts();
       emit(HomeDataSuccess());
     } catch (e) {
       log(e.toString());
@@ -102,6 +105,35 @@ class HomeCubit extends Cubit<HomeState> {
           if (fav.userId == userId) {
             favouriteProducts.add(product);
             allFavourites.addAll({product.id!: true});
+          }
+        }
+      }
+    }
+  }
+
+  Future<void> buyProduct({required String productId}) async {
+    emit(BuyProductLoading());
+    try {
+      await _apiServices.postData("purchase", {
+        "user_id": userId,
+        "is_purchased": true,
+        "product_id": productId,
+      });
+      emit(BuyProductDone());
+    } catch (e) {
+      log(e.toString());
+      emit(BuyProductError());
+    }
+  }
+
+// get favorite products
+  List<ProductModel> userOrders = [];
+  void getUserOrdersProducts() {
+    for (ProductModel product in products) {
+      if (product.purchase != null && product.purchase!.isNotEmpty) {
+        for (Purchase userOrder in product.purchase!) {
+          if (userOrder.userId == userId) {
+            userOrders.add(product);
           }
         }
       }

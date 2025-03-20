@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:e_commerce_with_supabase/features/view_model/product_model/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:pay_with_paymob/pay_with_paymob.dart';
 
 import '../../features/view/entry_pages/home_details/home_details.dart';
 import '../utils/colors.dart';
@@ -11,10 +14,12 @@ class ItemCard extends StatelessWidget {
   const ItemCard({
     super.key,
     required this.productModel,
-    this.favBTN, required this.isFav,
+    this.favBTN,
+    required this.isFav, this.onPaymentSuccess,
   });
   final ProductModel productModel;
   final VoidCallback? favBTN;
+  final VoidCallback? onPaymentSuccess;
   final bool isFav;
   @override
   Widget build(BuildContext context) {
@@ -57,9 +62,9 @@ class ItemCard extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: favBTN,
-                    child:  Icon(
+                    child: Icon(
                       Icons.favorite,
-                      color: isFav? Colors.red: AppColors.gray,
+                      color: isFav ? Colors.red : AppColors.gray,
                     ),
                   )
                 ],
@@ -87,7 +92,21 @@ class ItemCard extends StatelessWidget {
                     ],
                   ),
                   MainButton(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PaymentView(
+                            onPaymentSuccess: onPaymentSuccess!,
+                            onPaymentError: () {
+                              log("Payment Failure");
+                            },
+                            price: 100,
+                            // double.parse(product.price!), // Required: Total price (e.g., 100 for 100 EGP)
+                          ),
+                        ),
+                      );
+                    },
                     name: 'Buy Now',
                     width: 110,
                   )

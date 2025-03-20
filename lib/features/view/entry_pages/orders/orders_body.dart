@@ -7,6 +7,7 @@ class OrdersBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const ListOfItems(
+      isMyOrders: true,
       shrinkWrap: false,
       physics: BouncingScrollPhysics(),
     );

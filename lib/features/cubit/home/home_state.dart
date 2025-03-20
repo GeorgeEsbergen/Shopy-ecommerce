@@ -22,3 +22,12 @@ final class deleteFromFavLoading extends HomeState {}
 final class deleteFromFavSuccess extends HomeState {}
 
 final class deleteFromFavFailure extends HomeState {}
+
+
+final class BuyProductLoading extends HomeState {}
+
+final class BuyProductDone extends HomeState {}
+
+final class BuyProductError extends HomeState {}
+
+
