@@ -1,14 +1,10 @@
 import 'dart:math';
 
-import 'package:e_commerce_with_supabase/core/utils/font_style.dart';
-import 'package:e_commerce_with_supabase/core/widgets/main_button.dart';
 import 'package:flutter/material.dart';
-import 'package:pay_with_paymob/pay_with_paymob.dart';
 
 import '../../features/view/entry_pages/home_details/home_details.dart';
 import '../../features/view_model/product_model/product_model.dart';
 import '../utils/colors.dart';
-import 'cache_image.dart';
 
 class SmallCard extends StatelessWidget {
   const SmallCard({
@@ -37,7 +33,7 @@ class SmallCard extends StatelessWidget {
                       "https://img.freepik.com/free-vector/cosmetic-products-hair-care-water-splash_107791-2525.jpg?t=st=1738778236~exp=1738781836~hmac=92e319f1b881d847fc51514d9d4e925156acf6038c01ec04a59a6c2760e52137&w=1380",
                 ))),
         width: 200,
-        height: 280,
+        height: 220,
         child: Stack(
           children: [
             Positioned(
@@ -50,11 +46,12 @@ class SmallCard extends StatelessWidget {
                   height: 40,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      color: AppColors.black.withOpacity(0.7),
+                      color: AppColors.black.withOpacity(0.5),
                       borderRadius: BorderRadius.circular(50)),
                   child: Icon(
                     Icons.favorite,
-                    color: isFav ? Colors.red : AppColors.gray,
+                    color:
+                        isFav ? Colors.red : AppColors.white.withOpacity(0.8),
                   ),
                 ),
               ),

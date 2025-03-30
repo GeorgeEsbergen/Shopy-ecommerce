@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
 import 'package:e_commerce_with_supabase/core/utils/colors.dart';
+import 'package:e_commerce_with_supabase/core/utils/font_style.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/sensitve_data/sensitive_data.dart';
 import '../../../../core/widgets/list_of_all_items.dart';
@@ -60,20 +61,23 @@ class _HomeBodyState extends State<HomeBody> {
       children: [
         SearchTextField(
           controller: search,
-          icon: ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => SearchScreen(
-                        query: search.text,
-                      )));
-              search.clear();
-            },
-            style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.black,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15))),
-            child: const Icon(Icons.search),
+          icon: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => SearchScreen(
+                          query: search.text,
+                        )));
+              },
+              style: ButtonStyle(
+                foregroundColor: WidgetStateProperty.all(Colors.black),
+                // backgroundColor:
+                //     WidgetStateProperty.all(AppColors.gray.withOpacity(0.3)),
+              ),
+              color: Colors.black,
+              icon: const Icon(Icons.search),
+            ),
           ),
         ),
         // const SizedBox(height: 20),
@@ -82,20 +86,23 @@ class _HomeBodyState extends State<HomeBody> {
         //   width: double.infinity,
         //   height: 150,
         // ),
-         const SizedBox(height: 20),
-        Text('Most Popular'.tr(context)),
+        const SizedBox(height: 20),
+        Text(
+          'Most Popular'.tr(context),
+          style: AppFonts.b16_700,
+        ),
         const SizedBox(
-          height: 250,
+          height: 220,
           width: double.infinity,
           child: ListOfSmallItems(
             reverseList: true,
           ),
         ),
         const SizedBox(height: 20),
-        Text('Categories'.tr(context)),
+        Text('Categories'.tr(context), style: AppFonts.b16_700),
         const CategoriesList(),
         const SizedBox(height: 20),
-        Text('Recently Produced'.tr(context)),
+        Text('Recently Produced'.tr(context), style: AppFonts.b16_700),
         const ListOfItems(),
       ],
     );

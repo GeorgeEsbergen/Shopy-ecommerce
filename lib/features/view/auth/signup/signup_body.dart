@@ -115,6 +115,8 @@ class SignupBody extends StatelessWidget {
         }, listener: (context, state) {
           if (state is SignupSuccess) {
             Navigator.of(context).pushReplacementNamed(Login.routeName);
+            
+            mainSnackBar(context, "Account Created Successfully".tr(context));
           }
           if (state is SignupFailure) {
             mainSnackBar(context, state.message);

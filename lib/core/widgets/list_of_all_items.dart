@@ -1,4 +1,5 @@
 import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
+import 'package:e_commerce_with_supabase/core/utils/font_style.dart';
 import 'package:e_commerce_with_supabase/core/widgets/custom_indicator.dart';
 import 'package:e_commerce_with_supabase/core/widgets/main_snackbar.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,9 @@ class ListOfItems extends StatelessWidget {
     this.query,
     this.category,
     this.isFavScreen = false,
-    this.isMyOrders = false, this.reverseList, this.direction,
+    this.isMyOrders = false,
+    this.reverseList,
+    this.direction,
   });
   final bool? shrinkWrap;
   final ScrollPhysics? physics;
@@ -25,7 +28,7 @@ class ListOfItems extends StatelessWidget {
   final bool isFavScreen;
   final bool? isMyOrders;
   final bool? reverseList;
-final Axis? direction;
+  final Axis? direction;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -44,15 +47,18 @@ final Axis? direction;
                       : isMyOrders!
                           ? homeCubit.userOrders
                           : context.read<HomeCubit>().products;
+                          
           return state is HomeDataLoading
               ? const CustomCircleIndicator()
               : products.isEmpty
                   ? Center(
-                      child: Text('No Results To show'.tr(context)),
+                      child: Text('No Results To show'.tr(context) ,style: AppFonts.b16_700,),
                     )
-                  : ListView.builder(
-                    scrollDirection:direction??Axis.vertical ,
-                    reverse: reverseList?? false,
+                  : ListView.separated(
+                      separatorBuilder: (context, index) =>
+                          SizedBox(height: 20),
+                      scrollDirection: direction ?? Axis.vertical,
+                      reverse: reverseList ?? false,
                       shrinkWrap: shrinkWrap ?? true,
                       physics: physics ?? const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) => ItemCard(
@@ -60,7 +66,6 @@ final Axis? direction;
                           await homeCubit.buyProduct(
                               productId: products[index].id!);
                           mainSnackBar(
-                              // ignore: use_build_context_synchronously
                               context, "Product added to Orders".tr(context));
                         },
                         productModel: products[index],

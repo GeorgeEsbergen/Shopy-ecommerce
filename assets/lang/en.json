@@ -55,12 +55,14 @@
     "games": "games",
     "bikes": "bikes",
     "Search Results": "Search Results",
-    "Item added to favourites":"Item added to favourites",
-    "Item removed from favourites":"Item removed from favourites",
-    "Product added to Orders":"Product added to Orders",
-    "No Results To show":"No Results To show",
-    "Most Popular":"Most Popular",
-    "Similar Products":"Similar Products",
-    "Rate Product":"Rate Product",
-    "Reviews":"Reviews"
+    "Item added to favourites": "Item added to favourites",
+    "Item removed from favourites": "Item removed from favourites",
+    "Product added to Orders": "Product added to Orders",
+    "No Results To show": "No Results To show",
+    "Most Popular": "Most Popular",
+    "Similar Products": "Similar Products",
+    "Rate Product": "Rate Product",
+    "Reviews": "Reviews",
+    "Account Created Successfully": "Account Created Successfully"
+    
 }

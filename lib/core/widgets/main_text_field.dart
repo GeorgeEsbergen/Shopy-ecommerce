@@ -22,13 +22,7 @@ class MainTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(boxShadow: [
-        BoxShadow(
-            color: Color(
-              0xffb2b2b2,
-            ),
-            blurRadius: 15)
-      ]),
+      decoration: const BoxDecoration(),
       child: TextFormField(
         onTap: onTapField,
         readOnly: readOnly ?? false,
@@ -42,21 +36,21 @@ class MainTextField extends StatelessWidget {
             focusedBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
                   width: 0,
-                  color: AppColors.white,
+                  color: AppColors.gray,
                 ),
                 borderRadius: BorderRadius.circular(15)),
             enabledBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
                   width: 0,
-                  color: AppColors.white,
+                  color: AppColors.gray,
                 ),
                 borderRadius: BorderRadius.circular(15)),
             focusedErrorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),
-                borderSide: const BorderSide(width: 0, color: AppColors.white)),
+                borderSide: const BorderSide(width: 0, color: AppColors.gray)),
             errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),
-                borderSide: const BorderSide(width: 0, color: AppColors.white)),
+                borderSide: const BorderSide(width: 0, color: AppColors.gray)),
             suffixIcon: Icon(
               icon,
               color: Colors.grey.withOpacity(0.6),

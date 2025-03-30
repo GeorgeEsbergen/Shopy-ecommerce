@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 
 class SearchTextField extends StatelessWidget {
-  const SearchTextField({
+  SearchTextField({
     super.key,
     required this.controller,
     required this.icon,
@@ -22,13 +22,7 @@ class SearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: const BoxDecoration(boxShadow: [
-          BoxShadow(
-              color: Color(
-                0xffb2b2b2,
-              ),
-              blurRadius: 15)
-        ]),
+        decoration: const BoxDecoration(),
         child: TextFormField(
           onTap: onTapField,
           readOnly: readOnly ?? false,
@@ -42,29 +36,27 @@ class SearchTextField extends StatelessWidget {
               focusedBorder: OutlineInputBorder(
                   borderSide: const BorderSide(
                     width: 0,
-                    color: AppColors.white,
+                    color: AppColors.gray,
                   ),
                   borderRadius: BorderRadius.circular(15)),
               enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(
                     width: 0,
-                    color: AppColors.white,
+                    color: AppColors.gray,
                   ),
                   borderRadius: BorderRadius.circular(15)),
               focusedErrorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
                   borderSide:
-                      const BorderSide(width: 0, color: AppColors.white)),
+                      const BorderSide(width: 1, color: AppColors.gray)),
               errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
                   borderSide:
-                      const BorderSide(width: 0, color: AppColors.white)),
+                      const BorderSide(width: 1, color: AppColors.gray)),
               suffixIcon: icon),
         ));
   }
 }
-
-
 
 class AddCommentTextField extends StatelessWidget {
   const AddCommentTextField({
@@ -73,29 +65,21 @@ class AddCommentTextField extends StatelessWidget {
     required this.icon,
     this.keyboardType,
     this.validator,
-    
     this.onTapField,
   });
   final TextEditingController controller;
   final Widget icon;
   final TextInputType? keyboardType;
   final String? Function(String?)? validator;
-  
+
   final VoidCallback? onTapField;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: const BoxDecoration(boxShadow: [
-          BoxShadow(
-              color: Color(
-                0xffb2b2b2,
-              ),
-              blurRadius: 15)
-        ]),
+        decoration: const BoxDecoration(),
         child: TextFormField(
           onTap: onTapField,
-          
           validator: validator,
           controller: controller,
           keyboardType: keyboardType,
@@ -106,25 +90,24 @@ class AddCommentTextField extends StatelessWidget {
               focusedBorder: OutlineInputBorder(
                   borderSide: const BorderSide(
                     width: 0,
-                    color: AppColors.white,
+                    color: AppColors.gray,
                   ),
                   borderRadius: BorderRadius.circular(15)),
               enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(
                     width: 0,
-                    color: AppColors.white,
+                    color: AppColors.gray,
                   ),
                   borderRadius: BorderRadius.circular(15)),
               focusedErrorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
                   borderSide:
-                      const BorderSide(width: 0, color: AppColors.white)),
+                      const BorderSide(width: 0, color: AppColors.gray)),
               errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
                   borderSide:
-                      const BorderSide(width: 0, color: AppColors.white)),
+                      const BorderSide(width: 0, color: AppColors.gray)),
               suffixIcon: icon),
         ));
   }
 }
-

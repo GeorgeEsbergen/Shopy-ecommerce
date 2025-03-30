@@ -24,7 +24,6 @@ class BNV extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-
     return BlocProvider(
       create: (context) => BnvCubit(),
       child: BlocBuilder<BnvCubit, BnvState>(builder: (context, state) {
@@ -45,16 +44,17 @@ class BNV extends StatelessWidget {
                 rippleColor: Colors.black,
                 hoverColor: Colors.black,
                 haptic: true,
-                tabBorderRadius: 15,
+                tabBorderRadius: 50,
                 tabActiveBorder: Border.all(color: Colors.black, width: 1),
                 curve: Curves.linear,
                 duration: const Duration(milliseconds: 400),
                 gap: 8, // the tab button gap between icon and text
                 color: AppColors.gray, // unselected icon color
-                activeColor: AppColors.white, // selected icon and text color
+                activeColor: AppColors.white
+                    .withOpacity(0.9), // selected icon and text color
                 iconSize: 24, // tab button icon size
-                tabBackgroundColor:
-                    AppColors.black, // selected tab background color
+                tabBackgroundColor: AppColors.black
+                    .withOpacity(0.9), // selected tab background color
                 padding: const EdgeInsets.symmetric(
                     horizontal: 20, vertical: 12), // navigation bar padding
                 tabs: [

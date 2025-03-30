@@ -7,6 +7,7 @@ import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/font_style.dart';
 import '../../../../core/widgets/list_of_all_items.dart';
 import '../../../../core/widgets/search_text_field.dart';
+import '../home/search.dart';
 
 class StoreBody extends StatelessWidget {
   StoreBody({super.key});
@@ -16,7 +17,7 @@ class StoreBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-         Center(
+        Center(
           child: Text(
             'Store'.tr(context),
             style: AppFonts.b20_600,
@@ -25,14 +26,26 @@ class StoreBody extends StatelessWidget {
         const SizedBox(height: 20),
         SearchTextField(
           controller: search,
-          icon: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.black,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15))),
-            child: const Icon(Icons.search),
+          icon: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => SearchScreen(
+                          query: search.text,
+                        )));
+              },
+              style: ButtonStyle(
+                padding: WidgetStateProperty.all(
+                  const EdgeInsets.all(10),
+                ),
+                foregroundColor: WidgetStateProperty.all(Colors.black),
+                backgroundColor:
+                    WidgetStateProperty.all(AppColors.gray.withOpacity(0.3)),
+              ),
+              color: Colors.black,
+              icon: const Icon(Icons.search),
+            ),
           ),
         ),
         const SizedBox(height: 20),

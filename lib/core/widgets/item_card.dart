@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
 import 'package:e_commerce_with_supabase/features/view_model/product_model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:pay_with_paymob/pay_with_paymob.dart';
@@ -15,7 +16,8 @@ class ItemCard extends StatelessWidget {
     super.key,
     required this.productModel,
     this.favBTN,
-    required this.isFav, this.onPaymentSuccess,
+    required this.isFav,
+    this.onPaymentSuccess,
   });
   final ProductModel productModel;
   final VoidCallback? favBTN;
@@ -101,14 +103,14 @@ class ItemCard extends StatelessWidget {
                             onPaymentError: () {
                               log("Payment Failure");
                             },
-                            price: 100,
-                            // double.parse(product.price!), // Required: Total price (e.g., 100 for 100 EGP)
+                            price: double.parse(productModel.price!),
+                            // , // Required: Total price (e.g., 100 for 100 EGP)
                           ),
                         ),
                       );
                     },
-                    name: 'Buy Now',
-                    width: 110,
+                    name: 'Buy Now'.tr(context),
+                    width: 120,
                   )
                 ],
               ),
