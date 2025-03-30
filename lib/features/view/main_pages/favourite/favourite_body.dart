@@ -1,3 +1,4 @@
+import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/font_style.dart';
 import '../../../../core/widgets/list_of_all_items.dart';
@@ -8,15 +9,15 @@ class FavouriteBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: const [
+      children:  [
         Center(
           child: Text(
-            'Favourites',
+            'Favourites'.tr(context),
             style: AppFonts.b20_600,
           ),
         ),
-        SizedBox(height: 20),
-        ListOfItems(isFavScreen: true,),
+        const SizedBox(height: 20),
+        const ListOfItems(isFavScreen: true,),
       ],
     );
   }

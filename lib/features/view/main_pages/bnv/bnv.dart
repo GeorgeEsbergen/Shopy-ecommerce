@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
 import 'package:e_commerce_with_supabase/core/utils/colors.dart';
 import 'package:e_commerce_with_supabase/features/view/main_pages/favourite/favourite.dart';
 import 'package:e_commerce_with_supabase/features/view/main_pages/home/home.dart';
@@ -23,6 +24,7 @@ class BNV extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+
     return BlocProvider(
       create: (context) => BnvCubit(),
       child: BlocBuilder<BnvCubit, BnvState>(builder: (context, state) {
@@ -55,22 +57,22 @@ class BNV extends StatelessWidget {
                     AppColors.black, // selected tab background color
                 padding: const EdgeInsets.symmetric(
                     horizontal: 20, vertical: 12), // navigation bar padding
-                tabs: const [
+                tabs: [
                   GButton(
                     icon: Icons.home,
-                    text: 'Home',
+                    text: 'Home'.tr(context),
                   ),
                   GButton(
                     icon: Icons.store,
-                    text: 'Store',
+                    text: 'Store'.tr(context),
                   ),
                   GButton(
                     icon: Icons.favorite,
-                    text: 'Favorite',
+                    text: 'Favorite'.tr(context),
                   ),
                   GButton(
                     icon: Icons.settings,
-                    text: 'Setting',
+                    text: 'Setting'.tr(context),
                   )
                 ]),
           ),

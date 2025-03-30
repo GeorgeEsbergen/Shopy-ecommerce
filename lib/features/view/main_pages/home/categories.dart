@@ -1,7 +1,5 @@
-import 'package:e_commerce_with_supabase/core/widgets/item_card.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../core/widgets/list_of_all_items.dart';
+import '../../../../core/widgets/gridview_allItems.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key, required this.category});
@@ -14,7 +12,11 @@ class CategoriesScreen extends StatelessWidget {
           centerTitle: true,
         ),
         body: ListView(
-          children: [ListOfItems(category: category,)],
+          children: [
+            GridViewOfItems(
+              category: category,
+            )
+          ],
         ));
   }
 }

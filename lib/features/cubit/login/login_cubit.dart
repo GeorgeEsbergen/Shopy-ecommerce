@@ -109,6 +109,7 @@ class LoginCubit extends Cubit<LoginState> {
         name: data[0]['name'],
         phone: data[0]['phone'],
       );
+      emit(getUserDataSuccess());
       log(data.toString());
     } catch (e) {
       log(e.toString());

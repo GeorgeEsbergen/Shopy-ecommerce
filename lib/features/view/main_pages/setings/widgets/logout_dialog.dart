@@ -1,3 +1,4 @@
+import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
 import 'package:flutter/material.dart';
 
 // ignore: non_constant_identifier_names
@@ -6,23 +7,23 @@ Future<dynamic> LogoutDialog(BuildContext context, {VoidCallback? logOut}) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: const Text('Confirmation'),
-        content: const Text('Are you sure you want to Logout?'),
+        title:  Text('Confirmation'.tr(context)),
+        content:  Text('Are you sure you want to Logout?'.tr(context)),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.of(context).pop(); // Close dialog
             },
-            child: const Text(
-              'Cancel',
-              style: TextStyle(color: Colors.black),
+            child:  Text(
+              'Cancel'.tr(context),
+              style: const TextStyle(color: Colors.black),
             ),
           ),
           TextButton(
             onPressed: logOut,
-            child: const Text(
-              'Log out',
-              style: TextStyle(color: Colors.red),
+            child:  Text(
+              'Log out'.tr(context),
+              style: const TextStyle(color: Colors.red),
             ),
           ),
         ],

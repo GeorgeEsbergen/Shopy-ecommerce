@@ -1,4 +1,5 @@
-import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:e_commerce_with_supabase/core/widgets/custom_indicator.dart';
 import 'package:e_commerce_with_supabase/core/widgets/main_snackbar.dart';
 import 'package:flutter/material.dart';
@@ -6,17 +7,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/cubit/home/home_cubit.dart';
 import '../../features/view_model/product_model/product_model.dart';
-import 'item_card.dart';
+import 'gridview_item_card.dart';
 
-class ListOfItems extends StatelessWidget {
-  const ListOfItems({
+class GridViewOfItems extends StatelessWidget {
+  const GridViewOfItems({
     super.key,
     this.shrinkWrap,
     this.physics,
     this.query,
     this.category,
     this.isFavScreen = false,
-    this.isMyOrders = false, this.reverseList, this.direction,
+    this.isMyOrders = false,
   });
   final bool? shrinkWrap;
   final ScrollPhysics? physics;
@@ -24,8 +25,7 @@ class ListOfItems extends StatelessWidget {
   final String? category;
   final bool isFavScreen;
   final bool? isMyOrders;
-  final bool? reverseList;
-final Axis? direction;
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -47,21 +47,17 @@ final Axis? direction;
           return state is HomeDataLoading
               ? const CustomCircleIndicator()
               : products.isEmpty
-                  ? Center(
-                      child: Text('No Results To show'.tr(context)),
+                  ? const Center(
+                      child: Text('No Results To show'),
                     )
-                  : ListView.builder(
-                    scrollDirection:direction??Axis.vertical ,
-                    reverse: reverseList?? false,
-                      shrinkWrap: shrinkWrap ?? true,
-                      physics: physics ?? const NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) => ItemCard(
+                  : GridView.builder(
+                      primary: true,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) => GridviewItemCard(
                         onPaymentSuccess: () async {
                           await homeCubit.buyProduct(
                               productId: products[index].id!);
-                          mainSnackBar(
-                              // ignore: use_build_context_synchronously
-                              context, "Product added to Orders".tr(context));
+                          mainSnackBar(context, "Product added to Orders");
                         },
                         productModel: products[index],
                         favBTN: () {
@@ -72,14 +68,19 @@ final Axis? direction;
                                   .deleteFromFavourite(products[index].id!)
                               : homeCubit.addToFavourite(products[index].id!);
                           isFavourite
-                              ? mainSnackBar(context,
-                                  "Item removed from favourites".tr(context))
-                              : mainSnackBar(context,
-                                  "Item added to favourites".tr(context));
+                              ? mainSnackBar(
+                                  context, "Item removed from favourites")
+                              : mainSnackBar(
+                                  context, "Item added to favourites");
                         },
                         isFav: homeCubit.checkIfFav(products[index].id!),
                       ),
                       itemCount: products.length,
+                      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                          maxCrossAxisExtent: 220,
+                          childAspectRatio: 0.8,
+                          mainAxisSpacing: 10,
+                          crossAxisSpacing: 10),
                     );
         },
       ),

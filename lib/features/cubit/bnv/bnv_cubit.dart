@@ -11,4 +11,6 @@ class BnvCubit extends Cubit<BnvState> {
     currentIndex = index;
     emit(ChangeIndexPage());
   }
+
+  
 }

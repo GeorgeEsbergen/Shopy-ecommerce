@@ -1,4 +1,5 @@
 // ignore_for_file: must_be_immutable
+import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/font_style.dart';
 import '../../../../core/utils/responsive.dart';
@@ -12,8 +13,8 @@ class ProfileBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Profile",
+        title:  Text(
+          "Profile".tr(context),
           style: AppFonts.b22_600,
         ),
         centerTitle: true,
@@ -39,7 +40,7 @@ class ProfileBody extends StatelessWidget {
                 onTap: () {
                   profileKey.currentState!.validate();
                 },
-                name: 'Update',
+                name: 'Update'.tr(context),
               ),
               const SizedBox(height: 20),
             ],

@@ -1,3 +1,4 @@
+import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
 import 'package:e_commerce_with_supabase/core/widgets/custom_indicator.dart';
 import 'package:e_commerce_with_supabase/features/view_model/product_model/product_model.dart';
 import 'package:flutter/material.dart';
@@ -22,19 +23,19 @@ class CommentsListView extends StatelessWidget {
           List<Map<String, dynamic>>? data =
               snapshot.data as List<Map<String, dynamic>>?;
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return CustomCircleIndicator();
+            return const CustomCircleIndicator();
           } else if (!snapshot.hasData) {
-            return Center(
-              child: Text("There is no comments to show"),
+            return  Center(
+              child: Text("There is no comments to show".tr(context)),
             );
           } else {
             return ListView.separated(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) => commentData(
                 getcommentData: data[index],
               ),
-              separatorBuilder: (context, index) => SizedBox(
+              separatorBuilder: (context, index) => const SizedBox(
                 height: 10,
               ),
               itemCount: data!.length ?? 0,
@@ -44,6 +45,7 @@ class CommentsListView extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class commentData extends StatelessWidget {
   const commentData({
     super.key,
@@ -53,27 +55,25 @@ class commentData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          ListTile(
-            leading: CircleAvatar(
-              radius: 30,
-            ),
-            title: Text(getcommentData['user_name']),
-            subtitle: Text(getcommentData['comment']),
+    return Column(
+      children: [
+        ListTile(
+          leading: const CircleAvatar(
+            radius: 30,
           ),
-          getcommentData['reply'] != null
-              ? ListTile(
-                  title: Text(
-                    'Reply',
-                    style: TextStyle(color: Colors.blue),
-                  ),
-                  subtitle: Text(getcommentData['reply']),
-                )
-              : Container()
-        ],
-      ),
+          title: Text(getcommentData['user_name']),
+          subtitle: Text(getcommentData['comment']),
+        ),
+        getcommentData['reply'] != null
+            ? ListTile(
+                title:  Text(
+                  'Reply'.tr(context),
+                  style: const TextStyle(color: Colors.blue),
+                ),
+                subtitle: Text(getcommentData['reply']),
+              )
+            : Container()
+      ],
     );
   }
 }

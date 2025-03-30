@@ -43,8 +43,8 @@ class SignupForm extends StatelessWidget {
               validator: (value) => signUpValidator.validateEmail(value!),
             ),
             const SizedBox(height: 25),
-            const Text(
-              "Address",
+             Text(
+              "Address".tr(context),
               style: AppFonts.b16_700,
             ),
             const SizedBox(height: 12),
@@ -55,8 +55,8 @@ class SignupForm extends StatelessWidget {
               validator: (value) => signUpValidator.validateName(value!),
             ),
             const SizedBox(height: 25),
-            const Text(
-              "Phone",
+             Text(
+              "Phone".tr(context),
               style: AppFonts.b16_700,
             ),
             const SizedBox(height: 12),
@@ -67,8 +67,8 @@ class SignupForm extends StatelessWidget {
               validator: (value) => signUpValidator.validatePhone(value!),
             ),
             const SizedBox(height: 25),
-            const Text(
-              "Password",
+            Text(
+              "Password".tr(context),
               style: AppFonts.b16_700,
             ),
             const SizedBox(height: 12),

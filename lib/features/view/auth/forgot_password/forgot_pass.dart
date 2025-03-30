@@ -35,45 +35,47 @@ class _ForgotPassState extends State<ForgotPass> {
           return state is resetPasswordLoading
               ? const CustomCircleIndicator()
               : SafeArea(
-                  child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Form(
-                    key: forgotPasskey,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(height: 50),
-                        Text(
-                          'Enter Your Email To reset password',
-                          style: AppFonts.b20_600.copyWith(
-                              color: Colors.grey,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500),
-                        ),
-                        const SizedBox(height: 20),
-                        MainTextField(
-                          validator: (value) =>
-                              loginValidator.validateEmail(value!),
-                          controller: email,
-                          icon: Icons.email,
-                          keyboardType: TextInputType.emailAddress,
-                        ),
-                        const SizedBox(height: 20),
-                        Align(
-                            alignment: Alignment.center,
-                            child: MainButton(
-                                onTap: () {
-                                  if (forgotPasskey.currentState!.validate()) {
-                                    context
-                                        .read<LoginCubit>()
-                                        .resetPassword(email: email.text);
-                                  }
-                                },
-                                name: 'Send'))
-                      ],
+                  child: SingleChildScrollView(
+                    child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Form(
+                      key: forgotPasskey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 50),
+                          Text(
+                            'Enter Your Email To reset password',
+                            style: AppFonts.b20_600.copyWith(
+                                color: Colors.grey,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          const SizedBox(height: 20),
+                          MainTextField(
+                            validator: (value) =>
+                                loginValidator.validateEmail(value!),
+                            controller: email,
+                            icon: Icons.email,
+                            keyboardType: TextInputType.emailAddress,
+                          ),
+                          const SizedBox(height: 20),
+                          Align(
+                              alignment: Alignment.center,
+                              child: MainButton(
+                                  onTap: () {
+                                    if (forgotPasskey.currentState!.validate()) {
+                                      context
+                                          .read<LoginCubit>()
+                                          .resetPassword(email: email.text);
+                                    }
+                                  },
+                                  name: 'Send'))
+                        ],
+                      ),
                     ),
-                  ),
-                ));
+                                    ),
+                  ));
         }, listener: (context, state) {
           if (state is resetPasswordSuccess) {
             mainSnackBar(context, "Check your email");

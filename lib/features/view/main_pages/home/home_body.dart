@@ -1,15 +1,17 @@
 // ignore_for_file: must_be_immutable
+import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
 import 'package:e_commerce_with_supabase/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/sensitve_data/sensitive_data.dart';
 import '../../../../core/widgets/list_of_all_items.dart';
+import '../../../../core/widgets/list_of_small_items.dart';
 import '../../../../core/widgets/search_text_field.dart';
 import 'search.dart';
 import 'widgets/categoris_list.dart';
 import 'package:pay_with_paymob/pay_with_paymob.dart';
 
 class HomeBody extends StatefulWidget {
-  HomeBody({super.key});
+  const HomeBody({super.key});
 
   @override
   State<HomeBody> createState() => _HomeBodyState();
@@ -30,7 +32,7 @@ class _HomeBodyState extends State<HomeBody> {
 
       // // Optional User Data
       userData: UserData(
-        email:"User Email", // Optional: Defaults to 'NA'
+        email: "User Email", // Optional: Defaults to 'NA'
         // phone: "User Phone", // Optional: Defaults to 'NA'
         name: "User Name", // Optional: Defaults to 'NA'
         // lastName: "User Last Name", // Optional: Defaults to 'NA'
@@ -74,17 +76,26 @@ class _HomeBodyState extends State<HomeBody> {
             child: const Icon(Icons.search),
           ),
         ),
-        const SizedBox(height: 20),
-        Image.asset(
-          'assets/images/discount.png',
+        // const SizedBox(height: 20),
+        // Image.asset(
+        //   'assets/images/discount.png',
+        //   width: double.infinity,
+        //   height: 150,
+        // ),
+         const SizedBox(height: 20),
+        Text('Most Popular'.tr(context)),
+        const SizedBox(
+          height: 250,
           width: double.infinity,
-          height: 150,
+          child: ListOfSmallItems(
+            reverseList: true,
+          ),
         ),
         const SizedBox(height: 20),
-        const Text('Categories'),
+        Text('Categories'.tr(context)),
         const CategoriesList(),
         const SizedBox(height: 20),
-        const Text('Recently Produced'),
+        Text('Recently Produced'.tr(context)),
         const ListOfItems(),
       ],
     );

@@ -1,3 +1,4 @@
+import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
 import 'package:e_commerce_with_supabase/features/cubit/login/login_cubit.dart';
 import 'package:e_commerce_with_supabase/features/view/auth/login/login.dart';
 import 'package:e_commerce_with_supabase/features/view/entry_pages/orders/orders.dart';
@@ -17,11 +18,10 @@ class SettingsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GetUserDataModel? getdata = context.read<LoginCubit>().getUserDataModel;
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Settings',
+        title: Text(
+          'Settings'.tr(context),
           style: AppFonts.b20_600,
         ),
         centerTitle: true,
@@ -31,49 +31,60 @@ class SettingsBody extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: Column(
             children: [
-              SizedBox(
-                width: double.infinity,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const CircleAvatar(
-                      radius: 30,
-                      backgroundImage: NetworkImage(
-                          "https://img.freepik.com/free-vector/cosmetic-products-hair-care-water-splash_107791-2525.jpg?t=st=1738778236~exp=1738781836~hmac=92e319f1b881d847fc51514d9d4e925156acf6038c01ec04a59a6c2760e52137&w=1380"),
-                    ),
-                    const SizedBox(width: 10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          getdata!.name ?? "Known Name",
-                          style: AppFonts.b14_600,
-                        ),
-                        Text(
-                          getdata.email ?? "Known email",
-                          style: AppFonts.b14_600,
-                        ),
-                      ],
-                    )
-                  ],
+              BlocProvider(
+                create: (context) => LoginCubit()..getUserData(),
+                child: BlocBuilder<LoginCubit, LoginState>(
+                  builder: (context, state) {
+                    GetUserDataModel? getdata =
+                        context.read<LoginCubit>().getUserDataModel;
+                    return state is getUserDataLoading
+                        ? const CustomCircleIndicator()
+                        : SizedBox(
+                            width: double.infinity,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                const CircleAvatar(
+                                  radius: 30,
+                                  backgroundImage: NetworkImage(
+                                      "https://img.freepik.com/free-vector/cosmetic-products-hair-care-water-splash_107791-2525.jpg?t=st=1738778236~exp=1738781836~hmac=92e319f1b881d847fc51514d9d4e925156acf6038c01ec04a59a6c2760e52137&w=1380"),
+                                ),
+                                const SizedBox(width: 10),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      getdata!.name ?? "Known Name",
+                                      style: AppFonts.b14_600,
+                                    ),
+                                    Text(
+                                      getdata.email ?? "Known email",
+                                      style: AppFonts.b14_600,
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          );
+                  },
                 ),
               ),
               const SizedBox(height: 30),
               SettingsItems(
                 onTap: () => Navigator.of(context).pushNamed(Profile.routeName),
-                name: 'Profile',
+                name: 'Profile'.tr(context),
                 icon: Icons.person_2_outlined,
               ),
               const mainDivider(),
               SettingsItems(
                 onTap: () => Navigator.of(context).pushNamed(Orders.routeName),
-                name: 'My Orders',
+                name: 'My Orders'.tr(context),
                 icon: Icons.shopping_bag_outlined,
               ),
               const mainDivider(),
               SettingsItems(
                 onTap: () {},
-                name: 'About App',
+                name: 'About App'.tr(context),
                 icon: Icons.info_outline,
               ),
               const mainDivider(),
@@ -88,7 +99,7 @@ class SettingsBody extends StatelessWidget {
                             await context.read<LoginCubit>().logout();
                           });
                         },
-                        name: 'Log out',
+                        name: 'Log out'.tr(context),
                         icon: Icons.logout_sharp,
                         color: Colors.red,
                       );

@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/colors.dart';
@@ -15,9 +16,9 @@ class StoreBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        const Center(
+         Center(
           child: Text(
-            'Store',
+            'Store'.tr(context),
             style: AppFonts.b20_600,
           ),
         ),

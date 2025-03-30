@@ -17,8 +17,10 @@ class CategoriesList extends StatelessWidget {
         itemCount: allCategories.length,
         itemBuilder: (context, index) => GestureDetector(
           onTap: () {
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => CategoriesScreen(category: allCategories[index].name,)));
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => CategoriesScreen(
+                      category: allCategories[index].name,
+                    )));
           },
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -42,12 +44,12 @@ class CategoriesList extends StatelessWidget {
 }
 
 List<Category> allCategories = [
-  Category(icon: Icons.sports, name: 'Sports'),
-  Category(icon: Icons.laptop_chromebook, name: 'Electronics'),
-  Category(icon: Icons.collections, name: 'Collections'),
-  Category(icon: Icons.book, name: 'Books'),
-  Category(icon: Icons.games, name: 'Games'),
-  Category(icon: Icons.bike_scooter, name: 'Bike'),
+  Category(icon: Icons.sports, name: 'sports'),
+  Category(icon: Icons.laptop_chromebook, name: 'electronics'),
+  Category(icon: Icons.collections, name: 'collections'),
+  Category(icon: Icons.book, name: 'books'),
+  Category(icon: Icons.games, name: 'games'),
+  Category(icon: Icons.bike_scooter, name: 'bike'),
 ];
 
 class Category {

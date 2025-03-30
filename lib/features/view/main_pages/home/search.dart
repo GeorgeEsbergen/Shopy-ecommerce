@@ -1,3 +1,4 @@
+import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
 import 'package:e_commerce_with_supabase/core/widgets/item_card.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Search Results'),
+          title:  Text('Search Results'.tr(context)),
           centerTitle: true,
         ),
         body: ListView(

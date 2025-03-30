@@ -4,18 +4,25 @@ import 'package:flutter/material.dart';
 import 'custom_indicator.dart';
 
 class CacheImage extends StatelessWidget {
-  const CacheImage({
+   const CacheImage({
     super.key,
     required this.url,
+    this.height,
+    this.width,
   });
   final String url;
-
+  final double? height;
+  final double? width;
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
+      
+      height: height,
+      width: double.infinity,
       imageUrl: url,
+      fit: BoxFit.cover,
       placeholder: (context, url) =>
-          const SizedBox(height: 200, child: CustomCircleIndicator()),
+          SizedBox(height: height, child: const CustomCircleIndicator()),
       errorWidget: (context, url, error) => const Icon(Icons.error),
     );
   }

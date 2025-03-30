@@ -1,3 +1,4 @@
+import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/font_style.dart';
 import 'orders_body.dart';
@@ -10,8 +11,8 @@ class Orders extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Orders',
+        title:  Text(
+          'Orders'.tr(context),
           style: AppFonts.b20_600,
         ),
         centerTitle: true,
