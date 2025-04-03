@@ -9,6 +9,7 @@ import '../../../../core/widgets/custom_indicator.dart';
 import '../../../../core/widgets/divider.dart';
 import '../../../../core/widgets/language.dart';
 import '../../../view_model/auth/user_data.dart';
+import '../../entry_pages/about_app/aboutapp.dart';
 import '../../entry_pages/profile/profile.dart';
 import 'widgets/logout_dialog.dart';
 import 'widgets/setting_item.dart';
@@ -83,7 +84,8 @@ class SettingsBody extends StatelessWidget {
               ),
               const mainDivider(),
               SettingsItems(
-                onTap: () {},
+                onTap: () =>
+                    Navigator.of(context).pushNamed(Aboutapp.routeName),
                 name: 'About App'.tr(context),
                 icon: Icons.info_outline,
               ),

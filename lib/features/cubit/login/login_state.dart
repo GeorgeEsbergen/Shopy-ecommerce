@@ -40,3 +40,9 @@ final class getUserDataSuccess extends LoginState {}
 final class getUserDataLoading extends LoginState {}
 
 final class getUserDataFailure extends LoginState {}
+
+final class EditUserDataSuccess extends LoginState {}
+
+final class EditUserDataLoading extends LoginState {}
+
+final class EditUserDataFailure extends LoginState {}

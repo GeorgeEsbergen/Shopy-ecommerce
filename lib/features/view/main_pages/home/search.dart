@@ -1,5 +1,4 @@
 import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
-import 'package:e_commerce_with_supabase/core/widgets/item_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/list_of_all_items.dart';

@@ -4,6 +4,8 @@ import 'package:e_commerce_with_supabase/features/view_model/product_model/produ
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../../../../core/utils/font_style.dart';
+
 class CommentsListView extends StatelessWidget {
   const CommentsListView({
     super.key,
@@ -25,7 +27,7 @@ class CommentsListView extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const CustomCircleIndicator();
           } else if (!snapshot.hasData) {
-            return  Center(
+            return Center(
               child: Text("There is no comments to show".tr(context)),
             );
           } else {
@@ -61,12 +63,15 @@ class commentData extends StatelessWidget {
           leading: const CircleAvatar(
             radius: 30,
           ),
-          title: Text(getcommentData['user_name']),
+          title: Text(
+            getcommentData['user_name'],
+            style: AppFonts.b14_600,
+          ),
           subtitle: Text(getcommentData['comment']),
         ),
         getcommentData['reply'] != null
             ? ListTile(
-                title:  Text(
+                title: Text(
                   'Reply'.tr(context),
                   style: const TextStyle(color: Colors.blue),
                 ),

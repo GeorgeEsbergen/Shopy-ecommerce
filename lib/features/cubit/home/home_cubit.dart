@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:e_commerce_with_supabase/core/functions/api_services.dart';
-import 'package:e_commerce_with_supabase/core/widgets/main_snackbar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -127,7 +126,7 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-// get favorite products
+// get purchase products
   List<ProductModel> userOrders = [];
   void getUserOrdersProducts() {
     for (ProductModel product in products) {

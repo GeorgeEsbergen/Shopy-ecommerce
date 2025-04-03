@@ -18,4 +18,8 @@ class AppFonts {
     fontSize: 14,
     fontWeight: FontWeight.w600,
   );
+  static const TextStyle b14_500 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+  );
 }

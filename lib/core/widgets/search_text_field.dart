@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 
 class SearchTextField extends StatelessWidget {
-  SearchTextField({
+  const SearchTextField({
     super.key,
     required this.controller,
     required this.icon,

@@ -61,6 +61,8 @@ class ItemCard extends StatelessWidget {
                   Text(
                     "${productModel.name}",
                     style: AppFonts.b14_600,
+                    softWrap: true, // Enables text wrapping
+                    overflow: TextOverflow.clip,
                   ),
                   GestureDetector(
                     onTap: favBTN,

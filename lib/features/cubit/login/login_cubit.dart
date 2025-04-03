@@ -7,6 +7,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:meta/meta.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../../core/functions/api_services.dart';
 import '../../view_model/auth/user_data.dart';
 
 part 'login_state.dart';
@@ -114,6 +115,29 @@ class LoginCubit extends Cubit<LoginState> {
     } catch (e) {
       log(e.toString());
       emit(getUserDataFailure());
+    }
+  }
+
+  Future<void> updateUserName(String userId, Map<String, dynamic> data) async {
+    emit(EditUserDataLoading());
+    try {
+      final supabase = Supabase.instance.client;
+
+      final response = await supabase
+          .from('users') // Replace 'Users' with your table name
+          .update(data) // Update the name field
+          .eq('user_id', userId); // Filter by user ID
+
+      if (response.error == null) {
+        print('Name updated successfully');
+        emit(EditUserDataSuccess());
+      } else {
+        print('Error updating name: ${response.error.message}');
+        emit(EditUserDataFailure());
+      }
+    } catch (e) {
+      print('Error name: ${e.toString()}');
+      emit(EditUserDataFailure());
     }
   }
 }

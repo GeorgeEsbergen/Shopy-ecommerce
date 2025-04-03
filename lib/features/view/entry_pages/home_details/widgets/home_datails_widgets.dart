@@ -1,4 +1,7 @@
+// ignore_for_file: camel_case_types
+
 import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
+import 'package:e_commerce_with_supabase/core/utils/font_style.dart';
 import 'package:e_commerce_with_supabase/core/widgets/main_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -106,7 +109,10 @@ class rateAndBuyRow extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text('${cubit.averageRate}'),
+            Text(
+              '${cubit.averageRate}',
+              style: AppFonts.b14_600,
+            ),
             const SizedBox(
               width: 7,
             ),
@@ -152,8 +158,8 @@ class itemMainDetails extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(widget.productModel.name!),
-            Text(widget.productModel.price!),
+            Text(widget.productModel.name!, style: AppFonts.b14_600),
+            Text(widget.productModel.price!, style: AppFonts.b14_600),
           ],
         ),
         const Icon(Icons.favorite)

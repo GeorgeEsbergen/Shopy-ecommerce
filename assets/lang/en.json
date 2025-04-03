@@ -63,6 +63,15 @@
     "Similar Products": "Similar Products",
     "Rate Product": "Rate Product",
     "Reviews": "Reviews",
-    "Account Created Successfully": "Account Created Successfully"
-    
+    "Account Created Successfully": "Account Created Successfully",
+    "About1": "Our e-commerce app is designed to revolutionize the way you shop online, providing a seamless and intuitive experience. With a vast collection of products across multiple categories, you can easily find everything you need in one place. Our user-friendly interface ensures smooth navigation, making it simple to browse, search, and purchase items effortlessly. We prioritize convenience, offering features like wish lists, personalized recommendations, and one-click checkout.",
+    "About2": "Security and reliability are at the core of our platform, ensuring that your transactions and personal information remain protected. We integrate secure payment gateways, allowing you to choose from various payment methods with confidence. Our app also includes real-time order tracking, so you can monitor your purchases from checkout to delivery. With dedicated customer support available 24/7, we are always ready to assist you with any inquiries or concerns.",
+    "About3": "We strive to create a shopping experience that is not only convenient but also enjoyable. Regular discounts, seasonal sales, and exclusive deals make shopping with us even more rewarding. Our app is continuously updated with new features to enhance usability and improve customer satisfaction. Join thousands of satisfied shoppers and experience a smarter, faster, and safer way to shop online today! ",
+    "onboardingDescription1": "Discover a seamless shopping experience with the latest trends and exclusive deals, all in one place",
+    "onboardingDescription2": "Enjoy secure payments, fast shipping, and easy returns, making your shopping experience hassle-free and reliable.",
+    "onboardingDescription3": "Get recommendations tailored to your style and preferences, ensuring you find what you love effortlessly.",
+    "onboardingTitle1": "Welcome to our App",
+    "onboardingTitle2": "Shop with Confidence",
+    "onboardingTitle3": "Personalized Just for You",
+    "skip": "skip"
 }

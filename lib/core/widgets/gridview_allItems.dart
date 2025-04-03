@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:e_commerce_with_supabase/core/widgets/custom_indicator.dart';
 import 'package:e_commerce_with_supabase/core/widgets/main_snackbar.dart';
 import 'package:flutter/material.dart';

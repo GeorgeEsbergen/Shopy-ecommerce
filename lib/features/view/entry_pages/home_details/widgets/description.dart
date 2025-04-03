@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/font_style.dart';
+
 class DeescriptionRow extends StatelessWidget {
   final String title;
   final String description;
@@ -14,7 +16,7 @@ class DeescriptionRow extends StatelessWidget {
       title: Text(title,
           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
       children: [
-        Text(description, style: const TextStyle(fontSize: 14)),
+        Text(description, style: AppFonts.b14_600),
       ],
     );
   }

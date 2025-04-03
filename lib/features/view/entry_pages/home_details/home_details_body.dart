@@ -76,13 +76,20 @@ class _HomeDetailsBodyState extends State<HomeDetailsBody> {
                               ),
                             ),
                             const SizedBox(height: 20),
-                            Text('Rate Product'.tr(context)),
+                            Text(
+                              'Rate Product'.tr(context),
+                              style: AppFonts.b16_700,
+                            ),
                             const SizedBox(height: 10),
                             userRating(cubit: cubit, widget: widget),
                             const SizedBox(height: 20),
-                            addComment(comment: comment, cubit: cubit, widget: widget),
+                            addComment(
+                                comment: comment, cubit: cubit, widget: widget),
                             const SizedBox(height: 20),
-                            Text('Reviews'.tr(context)),
+                            Text(
+                              'Reviews'.tr(context),
+                              style: AppFonts.b16_700,
+                            ),
                             const SizedBox(height: 20),
                             CommentsListView(
                               productModel: widget.productModel,
@@ -104,4 +111,3 @@ class _HomeDetailsBodyState extends State<HomeDetailsBody> {
     super.dispose();
   }
 }
-

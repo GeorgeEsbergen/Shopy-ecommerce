@@ -1,6 +1,8 @@
 // ignore_for_file: must_be_immutable
 import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
+import 'package:e_commerce_with_supabase/features/cubit/login/login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/font_style.dart';
 import '../../../../core/utils/responsive.dart';
 import '../../../../core/widgets/main_button.dart';
@@ -13,7 +15,7 @@ class ProfileBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text(
+        title: Text(
           "Profile".tr(context),
           style: AppFonts.b22_600,
         ),
@@ -32,16 +34,10 @@ class ProfileBody extends StatelessWidget {
                 backgroundImage: NetworkImage(
                     "https://img.freepik.com/free-vector/cosmetic-products-hair-care-water-splash_107791-2525.jpg?t=st=1738778236~exp=1738781836~hmac=92e319f1b881d847fc51514d9d4e925156acf6038c01ec04a59a6c2760e52137&w=1380"),
               ),
-              SignupForm(
+              ProfileForm(
                 signupKey: profileKey,
               ),
-              const SizedBox(height: 20),
-              MainButton(
-                onTap: () {
-                  profileKey.currentState!.validate();
-                },
-                name: 'Update'.tr(context),
-              ),
+           
               const SizedBox(height: 20),
             ],
           ),

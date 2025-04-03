@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:e_commerce_with_supabase/core/localization/aoo_localization.dart';
 import 'package:e_commerce_with_supabase/core/utils/font_style.dart';
 import 'package:e_commerce_with_supabase/core/widgets/custom_indicator.dart';
@@ -56,7 +58,7 @@ class ListOfItems extends StatelessWidget {
                     )
                   : ListView.separated(
                       separatorBuilder: (context, index) =>
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                       scrollDirection: direction ?? Axis.vertical,
                       reverse: reverseList ?? false,
                       shrinkWrap: shrinkWrap ?? true,
