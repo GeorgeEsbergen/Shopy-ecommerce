@@ -2,7 +2,7 @@
  - [Description](#description)
  - [Features](#features)
  - [Tools](#tools)
- - [Screenshots](#screenshots)
+ - [Download Project](#download-project)
  - [APK Path ](#apk-path )
 
 
@@ -60,20 +60,17 @@ This app is designed with clean architecture and follows best practices to ensur
 ## Tools
 ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-%230175C2.svg?style=for-the-badge&logo=Dart&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-%233ECF8E.svg?style=for-the-badge&logo=supabase&logoColor=white),
-![MVVM](https://img.shields.io/badge/MVVM-blueviolet?style=for-the-badge),
-![Bloc](https://img.shields.io/badge/Bloc-blue?style=for-the-badge),
-![Git](https://img.shields.io/badge/Git-%23F05033.svg?style=for-the-badge&logo=Git&logoColor=white),
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white),
+![Supabase](https://img.shields.io/badge/Supabase-%233ECF8E.svg?style=for-the-badge&logo=supabase&logoColor=white)
+![MVVM](https://img.shields.io/badge/MVVM-blueviolet?style=for-the-badge)
+![Bloc](https://img.shields.io/badge/Bloc-blue?style=for-the-badge)
+![Git](https://img.shields.io/badge/Git-%23F05033.svg?style=for-the-badge&logo=Git&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 ![VS Code](https://img.shields.io/badge/VS%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-![Localization](https://img.shields.io/badge/Localization-orange?style=for-the-badge),
+![Localization](https://img.shields.io/badge/Localization-orange?style=for-the-badge)
 
 ## Download Project
 ##### 1. Clone the repository
 git clone https://github.com/your-username/shopy.git
-
-##### 2. Navigate to the project directory
-cd shopy
 
 ##### 3. Get the dependencies
 flutter pub get
@@ -81,6 +78,23 @@ flutter pub get
 ##### 4. Run the app
 flutter run
 
+
+## Deployment
+
+To deploy this project run this command in terminal
+
+```bash
+ flutter build apk
+```
+
+## APK Path 
+build/app/outputs/flutter-apk/app-release.apk
+
+
+## Contact
+For any questions or feedback, please reach out to:
+
+Email: georgeesbergen50@gmail.com
 
 
 
