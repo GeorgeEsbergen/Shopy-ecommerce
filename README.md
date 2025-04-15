@@ -70,7 +70,7 @@ This app is designed with clean architecture and follows best practices to ensur
 
 ## Download Project
 ##### 1. Clone the repository
-git clone https://github.com/your-username/shopy.git
+git clone https:/GeorgeEsbergen/github.com//shopy.git
 
 ##### 3. Get the dependencies
 flutter pub get
