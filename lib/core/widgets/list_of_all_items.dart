@@ -6,9 +6,8 @@ import 'package:e_commerce_with_supabase/core/widgets/custom_indicator.dart';
 import 'package:e_commerce_with_supabase/core/widgets/main_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../features/cubit/home/home_cubit.dart';
-import '../../features/view_model/product_model/product_model.dart';
+import '../../features/main_pages/home/model/product_model.dart';
+import '../../features/main_pages/home/view_model/home_cubit.dart';
 import 'item_card.dart';
 
 class ListOfItems extends StatelessWidget {

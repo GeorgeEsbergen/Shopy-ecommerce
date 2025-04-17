@@ -4,12 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'core/localization/aoo_localization.dart';
 import 'core/sensitve_data/sensitive_data.dart';
-import 'features/cubit/bnv/bnv_cubit.dart';
+import 'features/auth/login/view_model/login_cubit.dart';
+import 'features/auth/signup/view_model/signup_cubit.dart';
 import 'features/cubit/localization/localization_cubit.dart';
-import 'features/cubit/login/login_cubit.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'features/cubit/signup/signup_cubit.dart';
+import 'features/main_pages/bnv/view_model/bnv_cubit.dart';
+
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

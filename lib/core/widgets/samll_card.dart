@@ -1,8 +1,7 @@
 
 import 'package:flutter/material.dart';
-
-import '../../features/view/entry_pages/home_details/home_details.dart';
-import '../../features/view_model/product_model/product_model.dart';
+import '../../features/entry_pages/home_details/view/home_details.dart';
+import '../../features/main_pages/home/model/product_model.dart';
 import '../utils/colors.dart';
 
 class SmallCard extends StatelessWidget {

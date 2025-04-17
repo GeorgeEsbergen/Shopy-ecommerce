@@ -1,10 +1,8 @@
 import 'dart:developer';
-
-import 'package:e_commerce_with_supabase/features/view_model/product_model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:pay_with_paymob/pay_with_paymob.dart';
-
-import '../../features/view/entry_pages/home_details/home_details.dart';
+import '../../features/entry_pages/home_details/view/home_details.dart';
+import '../../features/main_pages/home/model/product_model.dart';
 import '../utils/colors.dart';
 import '../utils/font_style.dart';
 import 'cache_image.dart';
